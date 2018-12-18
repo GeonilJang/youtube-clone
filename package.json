@@ -1,0 +1,22 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "wetube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeonilJang/youtube-clone.git"
+  },
+  "author": "GeonilJang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeonilJang/youtube-clone/issues"
+  },
+  "homepage": "https://github.com/GeonilJang/youtube-clone#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
