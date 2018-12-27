@@ -1,6 +1,6 @@
 export const vides =[
   {
-    id:324393,
+    id:20180001,
     title:"Video awesome1",
     description: "this is geonil jang;s",
     views:24,
@@ -12,7 +12,7 @@ export const vides =[
     }
   },
   {
-    id:324393,
+    id:20180002,
     title:"Video awesome2",
     description: "this is geonil jang;s",
     views:1000,
@@ -24,7 +24,7 @@ export const vides =[
     }
   },
   {
-    id:324393,
+    id:20180003,
     title:"Video awesome3",
     description: "this is geonil jang;s",
     views:224,

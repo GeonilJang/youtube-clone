@@ -26,6 +26,18 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 //접속 로그 그록을 콘솔에 남겨누는 역할을 하는 미들 웨어
 app.use(morgan("dev"));
+// app.use(morgan((token, req, res)=>{
+//   return [
+//     token.method(req, res),
+//     token.url(req, res),
+//     token.status(req, res),
+//     token.res(req, res, 'content-length'),'-',
+//     token['response-time'](req,res),'ms',
+//   ].join(' ')
+// }))
+//
+
+
 //보안관련 역할을 해준다.
 app.use(helmet());
 app.use(localsMiddleware);
