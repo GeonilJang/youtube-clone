@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+import testRouter from "./routers/testRouter";
 import routes from "./routes";
 import pug from "pug";
 import {localsMiddleware} from "./middlewares";
@@ -48,5 +49,6 @@ app.use(localsMiddleware);
 app.use(routes.home, globalRouter);
 app.use(routes.users , userRouter);
 app.use(routes.videos, videoRouter);
+app.use(routes.test, testRouter);
 
 export default app;

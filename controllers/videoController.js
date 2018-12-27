@@ -1,7 +1,7 @@
 import {vides} from "../db"
 
 export const home = (req, res) => {
-  console.log(vides);
+    console.log(vides);
     res.render("home",{pageTitle:'Home',vides});
 };
 export const search = (req, res) => {

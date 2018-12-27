@@ -3,6 +3,7 @@ import routes from "../routes";
 import {home, search} from "../controllers/videoController"
 import {getJoin,postJoin, logout, getLogin, postLogin} from "../controllers/userController"
 
+
 const globalRouter = express.Router();
 
 //get or post 오는 요청을 처리하는 부분인데 path를 처리 합니다.

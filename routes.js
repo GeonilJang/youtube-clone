@@ -1,5 +1,6 @@
 //라우더 경로를 한 번에 관리하고자 만든 페이지 입니다.
 
+const TEST ="/test";
 
 //globalRouter
 const HOME ="/";
@@ -25,6 +26,7 @@ const DELETE_VIDEO = "/:id/delete"
 
 
 const routes = {
+  test : TEST,
   home : HOME,
   join : JOIN,
   login : LOGIN,
