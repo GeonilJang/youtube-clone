@@ -44,6 +44,7 @@ app.use(localsMiddleware);
 
 
 //route
+//메인 라우팅과 서브 패스를 분리 하기위해서 사용 한 작업입니다.
 app.use(routes.home, globalRouter);
 app.use(routes.users , userRouter);
 app.use(routes.videos, videoRouter);

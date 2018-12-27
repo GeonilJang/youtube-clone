@@ -1,3 +1,6 @@
+//라우더 경로를 한 번에 관리하고자 만든 페이지 입니다.
+
+
 //globalRouter
 const HOME ="/";
 const JOIN ="/join";

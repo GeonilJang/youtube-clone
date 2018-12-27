@@ -5,6 +5,8 @@ import {getJoin,postJoin, logout, getLogin, postLogin} from "../controllers/user
 
 const globalRouter = express.Router();
 
+//get or post 오는 요청을 처리하는 부분인데 path를 처리 합니다.
+
 globalRouter.get(routes.home, home);
 
 globalRouter.get(routes.join, getJoin);

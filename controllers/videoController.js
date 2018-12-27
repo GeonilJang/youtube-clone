@@ -9,7 +9,9 @@ export const search = (req, res) => {
   res.render("search", {pageTitle:'Search',searchingBy, vides});
 };
 
-
+//어떤 페이지를 보여주며 페이지로 전달 되는 객체가 무엇일지를 정의한다.
+// 페이지 렌더 + 페이지로 전달 되는 객체는 여기서 정의를 하고
+                                               //"pug" 페이지 입니다.
 export const videos = (req, res) =>  res.render("videos", {pageTitle:'Videos'});
 export const upload = (req, res) =>  res.render("upload", {pageTitle:'Upload'});
 export const videoDetail = (req, res) =>  res.render("videoDetail", {pageTitle:'VideoDetail'});
