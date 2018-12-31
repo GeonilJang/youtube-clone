@@ -20,6 +20,8 @@ const app = express();
 
 //pug view 엔진을 통해서 조금더 깔끔하게 HTML 문서 작업을 실시 할 수 있다.
 app.set('view engine',"pug");
+
+app.use("/uploads", express.static("uploads"));
  //cookie 정보를 받아서 사용하기 위해서 사용한다.
 app.use(cookieParser());
 //form 을 통해서 전달 하는 객체를 내부에서 사용하기 위해서 사용한다.

@@ -1,6 +1,11 @@
+import "./db"
 import app from "./app";
+import dotenv from "dotenv";
+dotenv.config();
+import "./models/Video"
+import "./models/Comment";
 
-const PORT = 4000;//포트 설정을 여기서 한다.
+const PORT = process.env.PORT || 4000;//포트 설정을 여기서 한다.
 const handleListening = () => console.log(`Server start at port : ${PORT} 에서 실행 중!!`);
 
 app.listen(PORT,handleListening);
