@@ -1,35 +1,46 @@
 import routes from "../routes";
 import Video from "../models/Video";
 
-//async 를입력하게 되면 특정 부분에서 대기 시킬 수 있다 원래대로라면 기다리지 않고 아래로 그냥 쭉!! 실행된다.
-export const home =async(req, res) => {
-    try{
-      const vides = await Video.find({}); //여기가 다 시작할 때까지 다음을 시작 하지 말란 뜻으로 asunc 와 awaut을 사옹한다.
-      console.log(vides);
-      //throw Error("dddd");
-      res.render("home",{pageTitle:'Home', vides});
-    }catch(error){
-      console.log(error);
-      res.render("home",{pageTitle:'Home', vides:[]});
-    }
+// async 를입력하게 되면 특정 부분에서 대기 시킬 수 있다 원래대로라면 기다리지 않고 아래로 그냥 쭉!! 실행된다.
+export const home = async (req, res) => {
+  try {
+    const vides = await Video.find({}).sort({ _id: -1 }); // 여기가 다 시작할 때까지 다음을 시작 하지 말란 뜻으로 asunc 와 awaut을 사옹한다.
+    console.log(vides);
+    // throw Error("dddd");
+    res.render("home", { pageTitle: "Home", vides });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", vides: [] });
+  }
 };
 
-export const search = (req, res) => {
-  const {query:{term : searchingBy}} = req
-  res.render("search", {pageTitle:'Search',searchingBy, vides});
-};
 
-export const getUpload = (req, res) =>  res.render("upload", {pageTitle:'Upload'});
-export const postUpload = async(req, res) =>  {
+
+export const search = async (req, res) => {
   const {
-    body:{title, description},
-    file:{path}
+    query: { term: searchingBy }
+  } = req;
+  let vides =[];
+  try{
+    vides = await Video.find({title:{ $regex:searchingBy, $options:"i" }});
+  }catch(error){
+    console.log(error);
+  }
+  res.render("search", { pageTitle: "Search", searchingBy, vides });
+};
+
+export const getUpload = (req, res) =>
+  res.render("upload", { pageTitle: "Upload" });
+export const postUpload = async (req, res) => {
+  const {
+    body: { title, description },
+    file: { path }
   } = req;
 
   const newVideo = await Video.create({
     fileUrl:path,
-    title:title,
-    description:description
+    title,
+    description
   })
 
   console.log(newVideo);
@@ -48,10 +59,9 @@ export const videoDetail = async(req, res) => {
   const{
     params:{id}
   }=req;
-
   try{
     const video = await Video.findById(id);
-    res.render("videoDetail", {pageTitle:'VideoDetail', video:video});
+    res.render("videoDetail", {pageTitle:video.title, video:video});
   }catch(error){
     console.log(error);
     res.redirect(routes.home);
@@ -88,16 +98,14 @@ export const postEditVideo = async(req, res) =>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-export const deleteVideo = (req, res) =>  res.render("deleteVideo", {pageTitle:'DeleteVideo'});
+export const deleteVideo = async(req, res) => {
+  const {
+    params:{id}
+  }=req;
+  try{
+    await Video.findOneAndRemove({_id:id});
+  }catch(error){
+    console.log(error);
+  }
+  res.redirect(routes.home);
+}
